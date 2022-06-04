@@ -1,0 +1,48 @@
+// Variables
+
+// Global Colors
+$background: #181818;
+$secondary-background: lighten($background, 1%);
+$foreground-yellow: #E0D561;
+$foreground-grey: #C4C5B5;
+$foreground-dark-grey: #77786e;
+
+// Colors (Monokai Soda Theme)
+$monokai-red: #F4005F;
+$monokai-green: #98E024;
+$monokai-yellow: #FA8419;
+$monokai-purple: #9D65FF;
+$monokai-cyan: #58D1EB;
+
+// Colors (Frozen Heat Theme)
+$fh-black: #181818;
+$fh-red: #e9005b;
+$fh-green: #4ad3a8;
+$fh-orange: #d86700;
+$fh-blue: #6a15ff;
+$fh-cyan: #19c0e4;
+$fh-yellow: #ffea77;
+$fh-grey: #a6a794;
+$fh-white: #fbffdd;
+
+// Test Colors (Dracula+ Theme)
+$test: #FF5555;
+$test2: #50FA7B;
+$test3: #FFCB6B;
+$test4: #82AAFF;
+$test5: #C792EA;
+$test6: #8BE9FD;
+
+// Preloader
+$color: #F4005F;
+$colorRight: darken($color, 15%);
+$colorLeft: darken($color, 5%);
+$shadow: darken($background, 4%);
+
+// Fonts
+$title: Grtsk Mega, sans-serif;
+$title2: 'Blanka Regular', sans-serif;
+$paragraph: 'SF UI Display', 'Graphik', sans-serif;
+
+// Font Sizes
+$heading: 1.5rem;

@@ -1,0 +1,49 @@
+// Mixins
+@mixin acrillic-effect($padding: 5px, $margin: 20px) {
+    margin: $margin;
+    padding: $padding;
+    border: solid 1px #4a4a4a;
+    -webkit-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.46);
+    -moz-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.46);
+    box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.46);
+    border-radius: 8px;
+}
+
+@mixin shadow() {
+    -webkit-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.46);
+    -moz-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.46);
+    box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.46);
+}
+
+@mixin flex-center($arrangement: column) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $arrangement;
+}
+
+@mixin selection($background: #F4005F, $color: #1a1a1a) {
+    ::selection {
+        background-color: $background;
+        color: $color;
+    }
+}
+
+@mixin button($padding: 10px, $margin: 5px, $bg-color: $monokai-green) {
+    background-color: $bg-color;
+    text-align: center;
+    padding: $padding;
+    margin: $margin;
+    border: 1px solid #649317;
+    border-radius: 8px;
+
+    a {
+        text-decoration: none;
+        font-family: $title;
+        color: $background;
+    }
+
+    &:hover {
+        background-color: lighten($bg-color, 5%);
+    }
+}

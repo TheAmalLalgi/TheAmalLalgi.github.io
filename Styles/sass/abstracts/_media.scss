@@ -1,0 +1,23 @@
+@mixin tablet() {
+	@media (min-width: 426px) {
+		@content
+	}
+};
+
+@mixin tablet-l() {
+	@media (min-width: 620px) {
+		@content
+	}
+};
+
+@mixin laptop() {
+	@media (min-width: 770px) {
+		@content
+	}
+};
+
+@mixin laptop-l() {
+	@media (min-width: 860px) {
+		@content
+	}
+};

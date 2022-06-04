@@ -1,0 +1,25 @@
+// Local Imports
+@import './variables';
+@import './mixins';
+@import './themes';
+@import './media';
+
+// Fonts
+@font-face {
+    font-family: 'Blanka Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Blanka Regular'), url('../../Assets/Fonts/Blanka/Blanka-Regular.woff') format('woff');
+}
+@font-face {
+    font-family: 'SF UI Display';
+    src: local('SF UI Display'), url('../../Assets/Fonts/SF UI Family/SFUIDisplay-Medium.ttf');
+}
+@font-face {
+    font-family: 'Graphik';
+    src: local('Graphik'), url('../../Assets/Fonts/Graphik/GraphikMedium.otf');
+}
+@font-face {
+    font-family: 'Helvetica';
+    src: local('Helvetica'), url('../../Assets/Fonts/Helvetica/Helvetica.ttf');
+}

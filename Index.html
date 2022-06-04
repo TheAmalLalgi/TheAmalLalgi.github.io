@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Amal Lalgi</title>
+		<link rel="icon" href="Assets/Images/Sprites/Pacman-Sprites/Pacman-Sprite-(2).png"/>
+		<link rel="stylesheet" href="Styles/Css/styles.css" />
+		<link rel="stylesheet" href="Assets/fontawesome/css/all.min.css" />
+		<script src="Assets/fontawesome/js/all.min.js" defer></script>
+		<script src="Assets/gsap/gsap.min.js" defer></script>
+		<script src="Assets/gsap/ScrollTrigger.min.js" defer></script>
+		<script src="Scripts/Script.js" defer></script>
+	</head>
+	<body>
+		<!-- Preloader -->
+		<div class="preloader">
+			<div class="window">
+				<div class="screen-header">
+					 <div class="screen-header-left">
+						<div class="screen-header-button close"></div>
+						<div class="screen-header-button maximize"></div>
+						<div class="screen-header-button minimize"></div>
+					 </div>
+				</div>
+				<img alt="preload" id="pre-image" src="Assets/Images/preloader/preloader-(23).webp">
+			</div>	
+		</div>
+		<!-- Navigation -->
+		<nav class="Nav">
+			<div class="Nav__Logo">
+				<a><img id="Logo" class="theme-toggle" /></a>
+			</div>
+			<ul class="Nav__Links">
+				<svg
+					class="close" style=" vertical-align: middle; fill: currentColor; overflow: hidden; "viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+					<path d="M960 170.56L869.44 80 512 437.44 154.56 80 64 170.56 421.44 528 64 885.44l90.56 90.56L512 618.56 869.44 976 960 885.44 602.56 528 960 170.56z"/>
+				</svg>
+				<li><a href="#Home">Home</a></li>
+				<li><a href="#About">About Me</a></li>
+				<li><a href="#Works">My Works</a></li>
+				<li><a href="#Contact">Contact Me</a></li>
+			</ul>
+			<!-- Burger Menu -->
+			<div class="burger">
+				<svg
+					class="menu"
+					style="
+						vertical-align: middle;
+						fill: currentColor;
+						overflow: hidden;
+					"
+					viewBox="0 0 1024 1024"
+					version="1.1"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						d="M128 170.666667h768v85.333333H128V170.666667z m256 298.666666h512v85.333334H384v-85.333334z m-256 298.666667h768v85.333333H128v-85.333333z"
+					/>
+				</svg>
+			</div>
+		</nav>
+		<!-- Home -->
+		<section class="Home" id="Home">
+			<h1 class="Home__Content">
+				Hello there,<br />
+				<span class="Home__Content__Greeting">Great Day!</span><br />
+				I am
+				<span class="Home__Content__Special" onclick="randomColor()"
+					>Amal</span
+				>.<br />
+				I build things that live here on the internet!
+			</h1>
+		</section>
+		<!-- About -->
+		<section class="About" id="About">
+			<div class="About__Image fade">
+				<img src="Assets/Images/hero/hero-(2).jpg" alt="Hero" id="hero-img" />
+			</div>
+			<div class="About__Decription fade">
+				<h1>Long story short..</h1>
+				<p>
+					Hello again! As I said, my name is Amal Lalgi. (Image
+					provided, which's probably the only nice image of me that
+					exits in this universe!) Anyways, just call me 'Amal'! I am
+					a passionate full stack web developer from Kerala, India. I love to design and code websites (Landing pages, Portfolio Websites etc.) and web applications. I am also into Shell scripting and Data Science. And when I am not coding, I like to make
+					illustrations, concept art and scribbles! I'm
+					currently on a quest to master full stack web dev.
+				</p>
+			</div>
+		</section>
+		<!-- Game -->
+		<section class="Game fade" id="Game">
+			<h1>Let's play a small game now, shall we...</h1>
+			<div class="Game__pokeMinions">
+				<img id="image-wrapper1" onclick="randomPokemon()" />
+				<img id="image-wrapper2" onclick="randomPokemon()" />
+				<img id="image-wrapper3" onclick="randomPokemon()" />
+			</div>
+		</section>
+		<!-- Works -->
+		<section class="Works fade" id="Works">
+			<h1 class="Works__Title">Check out some of my recent works...</h1>
+			<div class="Works__Btns container">
+				<div class="card card__Art fade">
+					<div class="box">
+						<div class="content">
+							<h2>01</h2>
+							<h3>Art and Designs</h3>
+							<p>
+								Check out my recent Art and Design works here! some of them
+								are posted on my social media pages, and on
+								Deviantart and dribble! Go check 'em out!
+							</p>
+							<a href="Pages/error.html" target="blank">Visit</a>
+						</div>
+					</div>
+				</div>
+				<div class="card card__Code fade">
+					<div class="box">
+						<div class="content">
+							<h2>02</h2>
+							<h3>Code Projects</h3>
+							<p>
+								I spend so much time in front of my Computer, mostly coding. Here are some of my recent code works. Almost all of them are posted on Codepen too.
+							</p>
+							<a href="Pages/error.html" target="blank">Visit</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Skills -->
+		<section class="Skills fade" id="Skills">
+			<h1 class="Skills__Title">
+				Here are some 'thingies' that I'm familiar with...
+			</h1>
+			<ul class="Skills__List">
+				<li>Semantic HTML | Markdown</li>
+				<li>Css | Sass | Bootstrap</li>
+				<li>JavaScript | Node JS | React JS</li>
+				<li>GSAP | JQuery | Barba JS</li>
+				<li>Python | SciPy | NumPy | PyGame</li>
+				<li>MongoDB | MySQL</li>
+			</ul>
+		</section>
+		<!-- Hire Me -->
+		<section class="Hire-me fade" id="Hire">
+			<h1 class="Hire-me__title">Like what you see?</h1>
+			<p>
+				Hire me... If there is anything that I can do for you, please, go ahead and ask me! Hire me to design and/or develop/code web elements.
+			</p>
+			<a href="#" class="Hire-me__button btnLink">Hire me on Fiverr</a>
+		</section>
+		<!-- Contact Me -->
+		<div class="Contact fade" id="Contact">
+			<div class="Contact__container">
+				<h1 class="Contact__title">Let's get in touch...</h1>
+				<div class="contact__grid">
+					<div class="contact__social fade">
+						<a target="blank" href="https://instagram.com/_u/TheAmalLalgi"><i class="fab fa-instagram"></i></a>
+						<a target="blank" href="https://twitter.com/AmalLalgi"><i class="fab fa-twitter"></i></a>
+						<a target="blank" href="https://www.linkedin.com/in/amal-lalgi-8b193521a/"><i class="fab fa-linkedin-in"></i></a>
+						<a target="blank" href="https://pintrest.com/_u/amallalgi"><i class="fab fa-pinterest-p"></i></a>
+						<a target="blank" href="https://dribbble.com/TheAmalLalgi"><i class="fab fa-dribbble"></i></a>
+						<a target="blank" href="https://github.com/TheAmalLalgi"><i class="fab fa-github"></i></a>
+						<a target="blank" href="https://codepen.io/theamallalgi"><i class="fab fa-codepen"></i></a>
+						<a target="blank" href="https://stackoverflow.com/users/16938644/amal-lalgi"><i class="fab fa-stack-overflow"></i></a>
+						<a target="blank" href="https://www.behance.net/amallalgi"><i class="fab fa-behance"></i></a>
+						<a target="blank" href="https://www.deviantart.com/amallalgi"><i class="fab fa-deviantart"></i></a>
+					</div>
+					<div class="contact__address fade">
+						<i class="fas fa-home"></i>
+						<h4>Padinjarayil House<br>Narakakkanam P.O.<br>Idukki, Kerala, India.</h4>
+					</div>
+					<div class="contact__form fade">
+						<form class="email-form">
+							<input type="text" placeholder="Name">
+							<input type="text" placeholder="Email">
+							<textarea name="Message" id="form__msg" cols="30" rows="14" placeholder="Message"></textarea>
+							<div class="form__btns">
+								<button class="form__btn__cancel" onclick="reset()">Cancel</button>
+								<button class="form__btn__send">Send</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Footer -->
+		<footer class="fade">
+			<h4>Designed and developed by <a href="#Home" class="footer__special">Amal Lalgi</a>.</h4>
+			<div class="footer__menu">
+				<div class="footer__abstracts">
+					<div class="footer__icons">
+						<a target="blank" href="https://github.com/TheAmalLalgi/TheAmalLalgi.github.io"><i class="fas fa-folder"></i></a>
+						<a target="blank" href="https://instagram.com/_u/TheAmalLalgi"><i class="fab fa-instagram"></i></a>
+						<a target="blank" href="https://twitter.com/AmalLalgi"><i class="fab fa-twitter"></i></a>
+						<a target="blank" href="https://www.linkedin.com/in/amal-lalgi-8b193521a/"><i class="fab fa-linkedin"></i></a>
+						<a target="blank" href="https://www.deviantart.com/amallalgi"><i class="fab fa-deviantart"></i></a>
+						<a target="blank" href="https://dribbble.com/TheAmalLalgi"><i class="fab fa-dribbble"></i></a>
+						<a target="blank" href="https://www.behance.net/amallalgi"><i class="fab fa-behance"></i></a>
+						<a target="blank" href="https://codepen.io/theamallalgi"><i class="fab fa-codepen"></i></a>
+						<a target="blank" href="https://github.com/TheAmalLalgi"><i class="fab fa-github-alt"></i></a>
+						<a target="blank" href="https://github.com/TheAmalLalgi/TheAmalLalgi.github.io"><i class="fas fa-arrow-down"></i></a>
+					</div>
+				</div>
+				<div class="footer__nav">
+					<ul>
+						<li><a href="#Home">Home page</a></li>
+						<li><a href="#About">About me</a></li>
+						<li><a href="#Art">Art gallery</a></li>
+						<li><a href="#Code">Code works</a></li>
+						<li><a href="#Contact">Contact me</a></li>
+						<li><a href="#Game">Mini game</a></li>
+						<li><a href="#Skills">My skills</a></li>
+						<li><a href="#FAQ">FAQ</a></li>
+					</ul>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>

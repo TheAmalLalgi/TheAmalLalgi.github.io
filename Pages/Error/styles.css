@@ -1,0 +1,118 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	height: 100vh;
+	background-color: #181818;
+	color: palegoldenrod;
+	font-family: Grtsk Mega;
+}
+
+.container {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.container h1 {
+	font-size: 10rem;
+	line-height: 1.5;
+	color: #686868;
+}
+.container h1::before {
+	content: '{';
+	color: #3e3e3e;
+	font-family: Cartograph CF;
+}
+.container h1::after {
+	content: '}';
+	color: #3e3e3e;
+	font-family: Cartograph CF;
+}
+
+.container h2 {
+	font-size: 1.5rem;
+	line-height: 2;
+	color: #515151;
+}
+
+.container h3 {
+	font-size: 1rem;
+	line-height: 1;
+	color: #3e3e3e;
+}
+
+.container a {
+	font-family: Cartograph CF;
+	font-size: 2rem;
+	line-height: 2;
+	color: #686868;
+	text-decoration: none;
+}
+
+.container a:hover, .container a:focus {
+	color: #4ad3a8;
+}
+
+.container a::before {
+	content: '[';
+	color: #3e3e3e;
+}
+.container a::after {
+	content: ']';
+	color: #3e3e3e;
+}
+
+/* Media */
+@media (max-width: 590px) {
+	.container {
+		text-align: center;
+		padding-inline: 2rem;
+	}
+	.container h1 {
+		font-size: 4.7rem;
+		line-height: 1.5;
+	}
+	.container h2 {
+		font-size: 1.3rem;
+		line-height: 1.2;
+	}
+	.container h3 {
+		font-size: 0.8rem;
+		line-height: 1;
+		margin-top: 0.5rem;
+	}
+	.container a {
+		font-size: 2.5rem;
+		line-height: 2;
+	}
+}
+
+@media (max-width: 425px) {
+	.container {
+		text-align: center;
+		padding-inline: 2rem;
+	}
+	.container h1 {
+		font-size: 3.5rem;
+		line-height: 1.5;
+	}
+	.container h2 {
+		font-size: 1rem;
+		line-height: 1.2;
+	}
+	.container h3 {
+		font-size: 0.7rem;
+		line-height: 1;
+		margin-top: 0.5rem;
+	}
+	.container a {
+		font-size: 1.5rem;
+		line-height: 2;
+	}
+}

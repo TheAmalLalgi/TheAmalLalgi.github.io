@@ -46,8 +46,7 @@ a {
 }
 
 h1 {
-	font-family: $title2;
-	font-weight: bold;
+	@include title();
 }
 
 main {
@@ -59,8 +58,20 @@ main, .skew__container {
   will-change: transform;
 }
 
+p, h3, h4, h5, h6 {
+	font-family: $secondary;
+}
+
+li, a {
+	font-family: $monospace;
+}
+
 .Home, .About, .Game, .Works, .Skills, .Hire-me, .Contact {
 	margin-bottom: 50px;
+}
+
+input, textarea {
+	caret-color: var(--accent-color);
 }
 
 // Preloader
@@ -162,6 +173,10 @@ nav {
 	z-index: 8888;
 	transition: all 300ms ease-in-out;
 
+	@include laptop() {
+		padding-inline: 4rem;
+	}
+
 	.Nav__Logo {
 		display: flex;
 		align-items: center;
@@ -231,8 +246,18 @@ nav {
 				font-weight: bold;
 				display: block;
 				text-transform: uppercase;
-				font-family: $title2;
+				font-family: $monospace;
+				font-weight: 800;
 				line-height: 1;
+
+				&.active {
+					&::before {
+						content: '{';
+					}
+					&::after {
+						content: '}';
+					}
+				}
 
 				&:focus {
 					border: none;
@@ -245,7 +270,7 @@ nav {
 					color: var(--foreground-dark);
 				};
 				@include laptop() {
-					font-size: 1.2rem;
+					font-size: 1rem;
 				}
 			}
 
@@ -311,7 +336,7 @@ nav {
 }
 
 // Home
-.Home {
+section.Home {
 	height: 95%;
 	display: flex;
 	justify-content: space-evenly;
@@ -326,16 +351,16 @@ nav {
 	}
 
 	h1.Home__Content {
-		font-size: 1.7rem;
+		font-size: 2rem;
 		line-height: 1;
 		color: var(--foreground-dark);
-		font-family: $title;
+		@include title();
 
 		@include tablet() {
-			font-size: 2rem;
+			font-size: 2.5rem;
 		}
 		@include laptop() {
-			font-size: 2.5rem;
+			font-size: 4rem;
 			max-width: 70vw;
 		}
 
@@ -346,12 +371,16 @@ nav {
 		}
 
 		span.Home__Content__Special {
-			color: var(--accent-color);
+			// -webkit-text-stroke: 5px var(--accent-color);
+  		// -webkit-text-fill-color: transparent;
+  		color: var(--accent-color);
 			animation: text-dance 1s linear infinite;
 			cursor: pointer;
 		}
 		span.Home__Content__Greeting {
-			color: var(--foreground-special);
+			// -webkit-text-stroke: 5px var(--foreground-special);
+  		// -webkit-text-fill-color: transparent;
+  		color: var(--foreground-special);
 			animation: text-dance 1s linear infinite;
 		}
 	}
@@ -367,7 +396,7 @@ nav {
 }
 
 // About
-.About {
+section.About {
 	display: flex;
   flex-direction: column;
   padding-inline: 15px;
@@ -418,6 +447,10 @@ nav {
     	}
     }
 
+    p {
+    	// font-family: Grtsk Mega, sans-serif;
+    }
+
     @include tablet() {
     	display: flex;
     	justify-content: center;
@@ -426,6 +459,7 @@ nav {
     }
     @include laptop() {
     	font-size: 1.3rem;
+    	padding: 2rem;
     }
     @include laptop-l() {
     	font-size: 1.5rem;
@@ -490,7 +524,7 @@ nav {
 }
 
 // Works
-.Works {
+section.Works {
 	padding-inline: 15px;
 
 	@include laptop() {
@@ -512,100 +546,68 @@ nav {
 	flex-wrap: wrap;
 	justify-content: center;
 	color: var(--foreground-primary);
-}
 
-body .container .card {
-  position: relative;
-  height: 60vh;
-  width: 300px;
-  max-width: 300px;
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
+	.card {
+		position: relative;
+	  height: 75vh;
+	  width: 350px;
+	  max-width: 350px;
+	  border-radius: 15px;
+	  display: flex;
+	  justify-content: center;
+	  flex-direction: column;
+	  align-items: center;
 
-body .container .card:nth-child(1) .box .content a {
-  background: var(--links-bg);
-  color: $background;
-  font-weight: bold;
-  font-size: 1rem;
-}
+	  .box {
+	  	position: absolute;
+		  top: 20px;
+		  left: 20px;
+		  right: 20px;
+		  bottom: 20px;
+		  background: var(--background-secondary);
+		  border-radius: 15px;
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  overflow: hidden;
+		  transition: 0.5s;
 
-body .container .card:nth-child(2) .box .content a {
-  background: var(--links-bg);
-  color: $background;
-  font-weight: bold;
-  font-size: 1rem;
-}
+		  .content {
+		  	padding: 20px;
+  			text-align: center;
 
-body .container .card .box {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
-  background: var(--background-secondary);
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  transition: 0.5s;
-}
+  			a {
+  				background: var(--links-bg);
+					color: $background;
+					font-weight: bold;
+					font-size: 1rem;
+					position: relative;
+				  display: inline-block;
+				  padding: 8px 20px;
+				  border-radius: 5px;
+				  text-decoration: none;
+				  margin-top: 20px;
+				  transition: 0.5s;
+  			}
 
-body .container .card .box:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  background: rgba(var(--background-secondary), 0.03);
-}
+  			h3 {
+  				font-size: 1.8rem;
+  				color: var(--foreground-primary);
+  				z-index: 1;
+  				transition: 0.5s;
+  				margin-bottom: 15px;
+  			}
 
-body .container .card .box .content {
-  padding: 20px;
-  text-align: center;
-}
-
-body .container .card .box .content h2 {
-  position: absolute;
-  top: -10px;
-  right: -55px;
-  font-size: 8rem;
-  color: var(--nav-bg);
-  font-family: $title;
-  letter-spacing: 2px;
-}
-
-body .container .card .box .content h3 {
-  font-size: 1.8rem;
-  color: var(--foreground-primary);
-  z-index: 1;
-  transition: 0.5s;
-  margin-bottom: 15px;
-}
-
-body .container .card .box .content p {
-  font-size: 1rem;
-  font-weight: 300;
-  color: var(--foreground-secondary);
-  z-index: 1;
-  transition: 0.5s;
-}
-
-body .container .card .box .content a {
-  position: relative;
-  display: inline-block;
-  padding: 8px 20px;
-  background: black;
-  border-radius: 5px;
-  text-decoration: none;
-  color: white;
-  margin-top: 20px;
-  transition: 0.5s;
+  			p {
+			  	font-size: 1.25rem;
+				  font-weight: 300;
+				  color: var(--foreground-secondary);
+				  z-index: 1;
+				  transition: 0.5s;
+  			}
+		  }
+	  }
+	}
 }
 
 // Skills
@@ -637,7 +639,11 @@ body .container .card .box .content a {
 
 		li {
 			margin-block: 1rem;
-			color: var(--foreground-primary);
+			color: var(--foreground-dark);
+
+			span {
+				color: var(--foreground-primary);
+			}
 		}
 	}
 }
@@ -692,7 +698,7 @@ body .container .card .box .content a {
 }
 
 // Contact Page
-.Contact {
+div.Contact {
 	padding: 20px;
 	margin-bottom: 20px;
 
@@ -813,7 +819,7 @@ body .container .card .box .content a {
 						font-size: 1rem;
 						border-radius: 8px;
 						border-radius: 4px;
-						font-family: $title2;
+						font-family: $title;
 						cursor: pointer;
 
 						&:first-of-type {
@@ -899,6 +905,11 @@ footer {
 		a.footer__special {
 			text-decoration: underline;
 			color: var(--foreground-dark);
+
+			&:hover, &:focus {
+				color: var(--links-bg);
+				text-decoration: none;
+			}
 		}
 	}
 
@@ -942,17 +953,29 @@ footer {
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: center;
+			font-family: $monospace;
 
 			li {
 				font-size: 0.8rem;
-				margin: 2px;
+				margin: 5px;
+				color: var(--foreground-dark);
+
+				&:first-child {
+					&::before {
+						content: '{ ';
+					}
+				}
+				&:last-child {
+					&::after {
+						content: ' }';
+					}
+				}
 
 				a {
 					color: var(--foreground-dark);
 
 					&:hover, &:focus {
 						color: var(--links-bg);
-						text-decoration: none;
 					}
 				}
 			}

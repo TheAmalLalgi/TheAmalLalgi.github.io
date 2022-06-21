@@ -1,5 +1,5 @@
 // Dark Theme
-html[data-theme="dark"] {
+:root {
 	--background: #181818;
 	--background-secondary: #1f1f1f;
 	--foreground-primary: #C4C5B5;
@@ -11,8 +11,7 @@ html[data-theme="dark"] {
 	--nav-bg: #00000050;
 }
 
-// Light Theme
-html[data-theme="light"] {
+:root.color_scheme--light {
 	--background: #ffffff;
 	--background-secondary: #daf5f8;
 	--foreground-primary: #008080;
@@ -20,12 +19,6 @@ html[data-theme="light"] {
 	--foreground-special: #ff6347;
 	--foreground-seconary: #e5543a;
 	--accent-color: #FA8419; // Random
-	--links-bg: #3aa885;
+	--links-bg: #359b79;
 	--nav-bg: #ffffff80;
-}
-
-// Transition
-html.transition, html.transition *, html.transition *:before, html.transition *:after {
-	transition: all 350ms !important;
-	transition-delay: 0 !important;
 }

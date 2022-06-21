@@ -1,0 +1,157 @@
+html {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+::selection {
+	background-color: #fa8419;
+	color: #181818;
+}
+
+body {
+	background-color: #181818;
+	color: #c4c5b5;
+	font-family: Cartograph CF;
+}
+
+a {
+	font-size: 2rem;
+	color: #686868;
+	text-decoration: none;
+}
+a:hover, a:focus {
+	text-decoration: underline;
+}
+
+h1 {
+	font-family: Grtsk Mega;
+	color: #fa8419;
+	font-size: 2.5rem;
+	margin-bottom: 4rem;
+	max-width: 60ch;
+}
+h1::before {
+	content: '[ ';
+	color: #77786e;
+}
+h1::after {
+	content: ' ]';
+	color: #77786e;
+}
+
+section {
+	padding: 0.5rem 3rem;
+}
+
+p {
+	max-width: 90ch;
+	font-size: 1.2rem;
+}
+
+p.q {
+	color: #C4C5B5;
+}
+p.ans {
+	color: #77786e;
+}
+
+::marker {
+	color: #77786e;
+	font-size: 1.2rem;
+}
+
+.e-eggs ul li {
+	max-width: 90ch;
+	font-size: 1.2rem;
+	margin-bottom: 1rem;
+}
+
+.credits ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
+	list-style-type: none;
+	max-width: 80vw;
+}
+
+.credits ul li a {
+	max-width: 90ch;
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+	margin-right: 1rem;
+	color: #C4C5B5;
+	display: block;
+	text-decoration: underline;
+}
+.credits ul li a:hover {
+	font-style: italic;
+	color: #77786e;
+}
+
+.credits p {
+	text-align: left;
+	color: #77786e;
+	font-style: italic;
+}
+
+.italic {
+	font-style: italic;
+}
+
+footer {
+	padding: 0.5rem 3rem;
+	text-align: center;
+	margin-bottom: 5rem;
+	color: #77786e;
+}
+footer h3 {
+	max-width: 60ch;
+	margin-inline: auto;
+}
+
+footer hr {
+	margin-block: 3rem;
+	color: #77786e60;
+}
+
+footer a {
+	color: #C4C5B5;
+}
+footer a::before {
+	content: '{';
+	color: #77786e;
+}
+footer a::after {
+	content: '}';
+	color: #77786e;
+}
+footer a:hover {
+	font-style: italic;
+}
+
+@media (max-width: 425px) {
+	html {
+		font-size: 10px;
+		text-align: center;
+	}
+	section {
+		padding: 0.2rem 2rem;
+	}
+	ul, ol {
+		padding-left: 0;
+	}
+	ol li {
+		list-style-type: none;
+	}
+	ul li {
+		list-style-type: none;
+	}
+	.credits ul {
+		justify-content: center;
+	}
+	.credits p {
+		text-align: center;
+	}
+}

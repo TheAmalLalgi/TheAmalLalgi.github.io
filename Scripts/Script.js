@@ -5,23 +5,28 @@ window.addEventListener('load', () => {
 })
 
 // GSAP
-gsap.registerPlugin(ScrollTrigger);
-const fadeElements = gsap.utils.toArray('.fade');
+// gsap.registerPlugin(ScrollTrigger);
+// const fadeElements = gsap.utils.toArray('.fade');
 
-window.addEventListener('load', () => {
-    let tl = gsap.timeline();
-      tl.from('.Home__Content', {opacity: 0, duration: 1, x: -50})
+// window.addEventListener('load', () => {
+//     let tl = gsap.timeline();
+//       tl.from('.Home__Content', {opacity: 0, duration: 1, x: -50})
 
-    fadeElements.forEach((elem, i) => {
-        const anim = gsap.fromTo(elem, { autoAlpha: 0, y: 50}, { duartion: 1, autoAlpha: 1, y: 0 });
-        ScrollTrigger.create({
-            trigger: elem,
-            animation: anim,
-            toggleActions: 'play none none none',
-            once: true
-        })
-    })
-})
+//     fadeElements.forEach((elem, i) => {
+//         const anim = gsap.fromTo(elem, { autoAlpha: 0, y: 50}, { duartion: 1, autoAlpha: 1, y: 0 });
+//         ScrollTrigger.create({
+//             trigger: elem,
+//             animation: anim,
+//             toggleActions: 'play none none none',
+//             once: true
+//         })
+//     })
+// })
+
+// Mario Jump
+const marioIndex = Math.floor(Math.random() * 1000);
+const mario = Math.floor(Math.random() * 10)
+const marioPic = `mario-sprite-(${mario}).gif`;
 
 // Special Random Colors
 let Colors = ["#F4005F", "#98E024", "#FA8419", "#9D65FF"];
@@ -35,7 +40,7 @@ const randomColor = () => {
 // Random Pacman Logo
 let PacmanSprites = [];
 
-for (let i = 1; i <= 10; i++) {
+for (let i = 1; i <= 9; i++) {
     let pacmanLogo = `Pacman-Sprite-(${i}).png`;
     PacmanSprites.push(pacmanLogo);
 };
@@ -43,7 +48,11 @@ for (let i = 1; i <= 10; i++) {
 const randomLogoGenerator = () => {
     let pacmanRandomIndex = Math.floor(Math.random() * PacmanSprites.length);
     newLogo = PacmanSprites[pacmanRandomIndex]
-    document.querySelector('#Logo').src = `./Assets/Images/Sprites/Pacman-Sprites/${newLogo}`;
+    if (marioIndex == 1) {
+        document.querySelector('#Logo').src = `./Assets/Images/Sprites/Mario-Sprites/${marioPic}`;
+    } else {
+        document.querySelector('#Logo').src = `./Assets/Images/Sprites/Pacman-Sprites/${newLogo}`;
+    }
 }; randomLogoGenerator();
 
 // Greeting
@@ -72,42 +81,46 @@ const randomPokemon = () => {
     };
 
     // Elements
-    let message = document.querySelector('#Game__desc__right__message');
+    let message = document.querySelector('#Game__desc__right__message')
     const globalRandomIndex = Math.floor(Math.random() * PokemonImages.length);
-    const cross = document.querySelector('#cross');
-    const shinyRandomIndex = Math.floor(Math.random() * 141441);
-    let shinyCount = 0;
+    const shinyRandomIndex = Math.floor(Math.random() * 141441); 
 
-    // Shiny Encounters
-    if (shinyRandomIndex == 1) {
-        const shinyRandomSlots = () => {
-            randomIndex1 = Math.floor(Math.random() * PokemonImages.length);
-            randomIndex2 = Math.floor(Math.random() * PokemonImages.length);
-            randomIndex3 = Math.floor(Math.random() * PokemonImages.length);
-
-            newImage1 = PokemonImages[randomIndex1];
-            newImage2 = PokemonImages[randomIndex2];
-            newImage3 = PokemonImages[randomIndex3];
-
-            document.getElementById('image-wrapper1').src = `./Assets/Images/Sprites/Pokemon-Sprites/Shiny/${newImage1}`;
-            document.getElementById('image-wrapper2').src = `./Assets/Images/Sprites/Pokemon-Sprites/Shiny/${newImage2}`;
-            document.getElementById('image-wrapper3').src = `./Assets/Images/Sprites/Pokemon-Sprites/Shiny/${newImage3}`;
-        }; shinyRandomSlots();
+    if (marioIndex == 1) {
+        document.getElementById('image-wrapper1').src = `./Assets/Images/Sprites/Mario-Sprites/${marioPic}`;
+        document.getElementById('image-wrapper2').src = `./Assets/Images/Sprites/Mario-Sprites/${marioPic}`;
+        document.getElementById('image-wrapper3').src = `./Assets/Images/Sprites/Mario-Sprites/${marioPic}`;
     } else {
-        // Normal Encounters
-        const randomSlots = () => {
-            randomIndex1 = Math.floor(Math.random() * PokemonImages.length);
-            randomIndex2 = Math.floor(Math.random() * PokemonImages.length);
-            randomIndex3 = Math.floor(Math.random() * PokemonImages.length);
+        // Shiny Encounters
+        if (shinyRandomIndex == 1) {
+            const shinyRandomSlots = () => {
+                randomIndex1 = Math.floor(Math.random() * PokemonImages.length);
+                randomIndex2 = Math.floor(Math.random() * PokemonImages.length);
+                randomIndex3 = Math.floor(Math.random() * PokemonImages.length);
 
-            newImage1 = PokemonImages[randomIndex1];
-            newImage2 = PokemonImages[randomIndex2];
-            newImage3 = PokemonImages[randomIndex3];
+                newImage1 = PokemonImages[randomIndex1];
+                newImage2 = PokemonImages[randomIndex2];
+                newImage3 = PokemonImages[randomIndex3];
 
-            document.getElementById('image-wrapper1').src = `./Assets/Images/Sprites/Pokemon-Sprites/Base/${newImage1}`;
-            document.getElementById('image-wrapper2').src = `./Assets/Images/Sprites/Pokemon-Sprites/Base/${newImage2}`;
-            document.getElementById('image-wrapper3').src = `./Assets/Images/Sprites/Pokemon-Sprites/Base/${newImage3}`;
-        }; randomSlots();
+                document.getElementById('image-wrapper1').src = `./Assets/Images/Sprites/Pokemon-Sprites/Shiny/${newImage1}`;
+                document.getElementById('image-wrapper2').src = `./Assets/Images/Sprites/Pokemon-Sprites/Shiny/${newImage2}`;
+                document.getElementById('image-wrapper3').src = `./Assets/Images/Sprites/Pokemon-Sprites/Shiny/${newImage3}`;
+            }; shinyRandomSlots();
+        } else {
+            // Normal Encounters
+            const randomSlots = () => {
+                randomIndex1 = Math.floor(Math.random() * PokemonImages.length);
+                randomIndex2 = Math.floor(Math.random() * PokemonImages.length);
+                randomIndex3 = Math.floor(Math.random() * PokemonImages.length);
+
+                newImage1 = PokemonImages[randomIndex1];
+                newImage2 = PokemonImages[randomIndex2];
+                newImage3 = PokemonImages[randomIndex3];
+
+                document.getElementById('image-wrapper1').src = `./Assets/Images/Sprites/Pokemon-Sprites/Base/${newImage1}`;
+                document.getElementById('image-wrapper2').src = `./Assets/Images/Sprites/Pokemon-Sprites/Base/${newImage2}`;
+                document.getElementById('image-wrapper3').src = `./Assets/Images/Sprites/Pokemon-Sprites/Base/${newImage3}`;
+            }; randomSlots();
+        }
     }
 }; randomPokemon();
 
@@ -136,6 +149,28 @@ window.addEventListener('scroll', () => {
     lastScrollTop = scrollTop
 })
 
+// Activate on scroll
+const sections = document.querySelectorAll('.section');
+const navLinks = document.querySelectorAll('nav ul li a');
+
+window.addEventListener('scroll', () => {
+    let current = '';
+
+    sections.forEach( section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - sectionHeight / 3) {
+            current = section.getAttribute('id');
+        }
+    })
+    navLinks.forEach( li => {
+        li.classList.remove('active');
+        if (li.classList.contains(current)) {
+            li.classList.add('active');
+        }
+    })
+})
+
 // Contact Form 
 const form = document.querySelector('form.email-form');
 
@@ -145,44 +180,28 @@ const reset = () => {
 
 // ColorSchemes
 const themeToggle = document.querySelector('.theme-toggle');
-let darkMode = localStorage.getItem('darkMode');
 
-const transition = () => {
-    document.documentElement.classList.add('transition');
-    window.setTimeout(() => {
-        document.documentElement.classList.remove('transition')
-    }, 1000)
-}
 const enableDarkMode = () => {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    localStorage.setItem('darkMode', 'enabled');
+    document.documentElement.classList.remove('color_scheme--light');
+    localStorage.setItem('colorScheme', 'dark');
     document.querySelector('#hero-img').src = `./Assets/Images/hero/hero-(2).jpg`
-    transition();
 }
 const enableLightMode = () => {
-    document.documentElement.setAttribute('data-theme', 'light');
-    localStorage.setItem('darkMode', null);
+    document.documentElement.classList.add('color_scheme--light');
+    localStorage.setItem('colorScheme', 'light');
     document.querySelector('#hero-img').src = `./Assets/Images/hero/hero-(1).jpg`
-    transition();
 }
 
-if (darkMode !== 'enabled') {
+if (localStorage.getItem('colorScheme') == 'light') {
     enableLightMode();
+} else {
+    enableDarkMode();
 }
 
 themeToggle.addEventListener('click', () => {
-    darkMode = localStorage.getItem('darkMode');
-    if (darkMode !== 'enabled') {
+    if (localStorage.getItem('colorScheme') == 'light') {
         enableDarkMode();
     } else {
         enableLightMode();
     }
 })
-
-// Random Hero image
-// const heroImage = document.querySelector('#hero-img');
-// const heroRandomIndex = Math.floor(Math.random() * 3);
-// const heroImagePath = `./Assets/Images/hero/Hero-(${heroRandomIndex}).jpg`;
-// const randomHeroImage = () => {
-//     heroImage.src = heroImagePath;
-// }; randomHeroImage();

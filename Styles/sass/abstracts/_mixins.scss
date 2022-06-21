@@ -47,3 +47,9 @@
         background-color: lighten($bg-color, 5%);
     }
 }
+
+@mixin title() {
+    font-family: $title;
+    font-weight: bold;
+    font-style: italic;
+}

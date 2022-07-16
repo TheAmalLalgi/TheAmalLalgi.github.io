@@ -199,9 +199,8 @@ nav {
 		top: 0;
 		background-color: var(--nav-bg);
 		backdrop-filter: blur(1rem);
-		border-left: 1px solid var(--foreground-secondary);
 		height: 100vh;
-		width: 60%;
+		width: 100%;
 		justify-content: center;
 		z-index: 333;
 		transition: all 300ms cubic-bezier(1, 0.06, 0.58, 0.65);
@@ -224,8 +223,10 @@ nav {
 		li {
 			list-style-type: none;
 			text-align: center;
-			@include acrillic-effect(5px, 10px);
-			border: 1px solid var(--foreground-secondary);
+			border: 0.1rem solid var(--foreground-primary);
+			margin: 5px;
+			padding: 10px;
+			border-radius: 10px;
 			background-color: var(--background);
 			padding-bottom: 10px;
 
@@ -238,24 +239,29 @@ nav {
 			}
 
 			a {
-				text-decoration: none;
+				-webkit-text-stroke: 2px var(--foreground-primary);
+	  		-webkit-text-fill-color: transparent;
 				color: var(--foreground-primary);
+				text-decoration: none;
 				display: inline-block;
 				padding: 5px;
-				font-size: 1.5rem;
+				font-size: 1.3rem;
 				font-weight: bold;
 				display: block;
 				text-transform: uppercase;
-				font-family: $monospace;
+				font-family: $title;
 				font-weight: 800;
 				line-height: 1;
 
 				&.active {
+					-webkit-text-stroke: unset;
+					-webkit-text-fill-color: unset;
+
 					&::before {
-						content: '{';
+						content: '{ ';
 					}
 					&::after {
-						content: '}';
+						content: ' }';
 					}
 				}
 
@@ -268,6 +274,9 @@ nav {
 				@include tablet() {
 					font-size: 0.8rem;
 					color: var(--foreground-dark);
+					font-family: $monospace;
+					-webkit-text-stroke: unset;
+	  			-webkit-text-fill-color: unset;
 				};
 				@include laptop() {
 					font-size: 1rem;
@@ -399,7 +408,7 @@ section.Home {
 section.About {
 	display: flex;
   flex-direction: column;
-  padding-inline: 15px;
+  padding: 1rem 15px;
   background-color: var(--background);
 
   .About__Image {
@@ -448,7 +457,7 @@ section.About {
     }
 
     p {
-    	// font-family: Grtsk Mega, sans-serif;
+    	font-size: 1.15rem;
     }
 
     @include tablet() {
@@ -463,6 +472,10 @@ section.About {
     }
     @include laptop-l() {
     	font-size: 1.5rem;
+
+    	p {
+    		font-size: 1.6rem;
+    	}
     }
   }
 
@@ -525,7 +538,7 @@ section.About {
 
 // Works
 section.Works {
-	padding-inline: 15px;
+	padding: 1rem 15px;
 
 	@include laptop() {
 		padding-inline: 4.5rem;
@@ -540,6 +553,85 @@ section.Works {
 	}
 }
 
+.featured-container {
+	h4 {
+		color: var(--foreground-dark);
+		font-size: 1.5rem;
+		font-style: italic;
+		font-family: $monospace;
+		margin-bottom: 0.5rem;
+	}
+
+	.line {
+		width: 100%;
+		border-radius: 10px;
+		margin-inline: auto;
+		height: 0.2rem;
+		z-index: 666;
+		transform-origin: left top;
+		background-color: var(--foreground-dark);
+	}
+
+	.featured__elem {
+		margin-block: 0.7rem;
+  	cursor: pointer;
+  	text-align: center;
+
+  	a {
+  		font-family: $title;
+			font-weight: bold;
+			font-size: 2rem;
+  		color: var(--foreground-dark);
+  		text-decoration: none;
+
+  		@include tablet-l() {
+  			font-size: 3rem;
+  		}
+  		@include laptop() {
+  			font-size: 4.5rem;
+  		}
+  	}
+
+		&:hover, &:focus {
+			font-style: italic;
+			-webkit-text-stroke: unset;
+  		-webkit-text-fill-color: unset;
+
+  		a {
+  			color: var(--foreground-primary);
+  		}
+		}
+
+		&-1 a {
+			font-family: $works-font-1;
+		}
+		&-2 a {
+			font-family: $works-font-2;
+		}
+		&-3 a {
+			font-family: $works-font-3;
+		}
+		&-4 a {
+			font-family: $works-font-4;
+		}
+		&-5 a {
+			font-family: $works-font-5;
+		}
+		&-6 a {
+			font-family: $works-font-6;
+		}
+	}
+}
+
+h4.more-text {
+	color: var(--foreground-dark);
+	font-size: 1.5rem;
+	font-style: italic;
+	font-family: $monospace;
+	margin-block: 2rem;
+	text-align: center;
+}
+
 .container {
 	margin-top: 20px;
 	display: flex;
@@ -550,6 +642,7 @@ section.Works {
 	.card {
 		position: relative;
 	  height: 75vh;
+	  max-height: 440px;
 	  width: 350px;
 	  max-width: 350px;
 	  border-radius: 15px;
@@ -566,6 +659,7 @@ section.Works {
 		  bottom: 20px;
 		  background: var(--background-secondary);
 		  border-radius: 15px;
+		  border: 0.2rem solid var(--foreground-dark);
 		  display: flex;
 		  justify-content: center;
 		  align-items: center;
@@ -600,8 +694,8 @@ section.Works {
 
   			p {
 			  	font-size: 1.25rem;
-				  font-weight: 300;
-				  color: var(--foreground-secondary);
+				  font-weight: 500;
+				  color: var(--foreground-primary);
 				  z-index: 1;
 				  transition: 0.5s;
   			}
